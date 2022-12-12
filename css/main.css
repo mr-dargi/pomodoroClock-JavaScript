@@ -65,7 +65,7 @@ html {
     z-index: 5;
 }
 
-.main-container:hover .semiCircle:nth-child(1) {
+/* .main-container:hover .semiCircle:nth-child(1) {
     transform: rotate(180deg);
     transition: 1s linear;
 }
@@ -78,4 +78,4 @@ html {
 .main-container:hover .semiCircle:nth-child(3) {
     opacity: 0;
     transition: opacity 0s 1s;
-}
+} */
