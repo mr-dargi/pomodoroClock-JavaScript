@@ -1,4 +1,5 @@
 const semiCircle  = document.querySelectorAll(".semiCircle"); 
+const timer = document.querySelector(".timer");
 
 
 const hr = 0;
@@ -17,7 +18,7 @@ const futureTime = startTime + setTime;
 
 function countDownTimer() {
     const currentTime = Date.now(); 
-    const remainingTime = futureTime -currentTime;
+    const remainingTime = futureTime - currentTime;
     const angle = (remainingTime / setTime) * 360;
 
     if(angle > 180) {
@@ -29,6 +30,18 @@ function countDownTimer() {
         semiCircle[0].style.transform = `rotate(${angle}deg)`;
         semiCircle[1].style.transform = `rotate(${angle}deg)`;
     }
+
+    const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((remainingTime / (1000 * 60 )) % 60);
+    const secs = Math.floor((remainingTime / (1000)) % 60);
+
+    timer.innerHTML = `
+    <div>${hrs}</div>
+    <div class="colon">:</div>
+    <div>${mins}</div>
+    <div class="colon">:</div>
+    <div>${secs}</div>
+    `
 
     if(remainingTime < 0) {
         clearInterval(timerLoop);
