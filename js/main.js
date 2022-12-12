@@ -26,28 +26,29 @@ function countDownTimer() {
         semiCircle[0].style.transform = "rotate(180deg)";
         semiCircle[1].style.transform = `rotate(${angle}deg)`;
     }else {
-        semiCircle[2].style.display = 'block';
+        semiCircle[2].style.display = 'inline-block';
         semiCircle[0].style.transform = `rotate(${angle}deg)`;
         semiCircle[1].style.transform = `rotate(${angle}deg)`;
     }
 
-    const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
-    const mins = Math.floor((remainingTime / (1000 * 60 )) % 60);
-    const secs = Math.floor((remainingTime / (1000)) % 60);
+    const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
+    const mins = Math.floor((remainingTime / (1000 * 60 )) % 60).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
+    const secs = Math.floor((remainingTime / (1000)) % 60).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false});
 
-    timer.innerHTML = `
-    <div>${hrs}</div>
-    <div class="colon">:</div>
-    <div>${mins}</div>
-    <div class="colon">:</div>
-    <div>${secs}</div>
-    `
+    timer.innerHTML = `${hrs} : ${mins} : ${secs}`;
+
+    if(remainingTime <= 6000) {
+        semiCircle[0].style.backgroundColor = 'red';
+        semiCircle[1].style.backgroundColor = 'red';
+        }
 
     if(remainingTime < 0) {
         clearInterval(timerLoop);
         semiCircle[2].style.display = 'none';
         semiCircle[0].style.display = 'none';
         semiCircle[1].style.display = 'none';
+
+        timer.innerHTML = timer.innerHTML = "00 : 00 : 00"
     }
 }
 
