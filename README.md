@@ -19,7 +19,7 @@
     Html, Css, JavaScript
   
 - What I learned:
-    After some searching and watching youtube video I found out how should I take the time and decrease it, actauly we can make a variable and equal it to Date.now then make another variable for puttin the time I want for countdown based on millisecond and added together.
+    After some searching and watching youtube video I found out how should I take the time and decrease it, actauly we can make a variable and equal it to Date.now then make another variable for puting the time I want for countdown based on millisecond and added together.
     Now we made Future variable after that we describe another variabel and eqaul it to
     Date.now and decreases from future variable and use interval to call it every one second. 
 
